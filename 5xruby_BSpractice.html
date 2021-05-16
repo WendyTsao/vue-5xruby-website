@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Vue2 框架 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="all.css" rel="stylesheet">
+    <title>五倍紅寶石｜專業程式教育機構｜實戰轉職訓練</title>
+
+    <style>
+        /* 紅色槓線 */
+        h4 {
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        h4::after {
+            content: "";
+            width: 5rem;
+            height: 3px;
+            background-color: #d90845;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+
+        /* 選單欄 */
+        .menu-bar {
+            background-color: #fff;
+        }
+
+        .navbar {
+            padding: 0;
+        }
+
+        /* Logo */
+        .navbar-light .navbar-brand {
+            color: #d90845;
+            font-size: 16px;
+        }
+
+        /* 漢堡夾 */
+        .navbar-toggler {
+            background-color: #d90845;
+            border-radius: 0;
+            padding: 1rem 1.2rem;
+        }
+
+        .icon-bar {
+            display: block;
+            width: 2rem;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+        }
+
+        /* 圖片輪播的原點設定 */
+        .carousel-indicators li {
+            width: 11px;
+            height: 11px;
+            border-radius: 100%;
+            margin: 0 6px -15px;
+        }
+
+        #lesson-carousel li {
+            border: 1px solid #fff;
+        }
+
+        #lesson-carousel li.active {
+            background-color: #d90845;
+        }
+
+        /* 關於5倍紅寶石 */
+        .about {
+            background-color: #f7f7f7;
+        }
+
+        /* 熱門網頁設計課程推薦 */
+        .lesson-block {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            height: 100%;
+        }
+
+        .lesson-content {
+            padding: 15px;
+        }
+
+        /* 開放報名tag */
+        .badge-tag {
+            color: #fff;
+            background-color: #d90845;
+            padding: 7px;
+        }
+
+        .teacher {
+            color: #999;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        /* 課程時間tag */
+        .badge-time {
+            color: #666;
+            background-color: #E6E6E6;
+            padding: 7px 11px;
+            font-size: 15px;
+            margin-right: 1em;
+        }
+
+        .time {
+            color: #999;
+        }
+
+        /* 看更多課程按鈕 */
+        .btn-lg {
+            padding: 15px 50px;
+        }
+
+        .btn-red {
+            color: #fff;
+            background-color: #d90845;
+        }
+
+        .btn-red:hover {
+            background-color: #cd3151;
+            color: #fff;
+        }
+
+        /* 網頁課程推薦 */
+        .lesson-recommend {
+            background-color: #f7f7f7;
+        }
+
+        /* 頭像+推薦文 輪播 */
+        #recommend-carousel li {
+            background-color: #ccc;
+        }
+
+        #recommend-carousel li.active {
+            background-color: #d90845;
+        }
+
+        .lecturer-intro img {
+            border-radius: 50%;
+        }
+
+        .text-large {
+            font-size: 28px;
+        }
+
+        .text-red {
+            color: #d90845;
+        }
+
+        /* 聯絡資訊 */
+        .contact-us .text {
+            line-height: 35px;
+            font-size: 20px;
+        }
+
+        /* 頁尾區塊 */
+        .footer {
+            background-color: #f7f7f7;
+        }
+
+        .footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul a,
+        i {
+            color: #888;
+            font-size: 15px;
+        }
+
+        a:hover {
+            color: #d90845;
+        }
+
+        /* copyright */
+        .copyright {
+            color: #888;
+            font-size: 13px;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 選單欄 -->
+    <header class="menu-bar shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid my-md-3">
+                <a class="navbar-brand text-danger ml-3" href="#">
+                    <img src="pic/5xruby.jpg" class="d-inline-block align-top" loading="lazy">
+                    專業程式教育機構
+                </a>
+                <!-- navbar-toggle：順利的看到「三」且出現在視窗的右方 -->
+                <!-- data-toggle="collapse"：製作「三」的動畫效果 -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#moblie-menu"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="moblie-menu">
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">線上課程</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ASTRO Camp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">全方位課程</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">短期課程</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">專案開發</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">專欄文章</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">最新消息</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="test">
+        <!-- 課程圖片輪播 -->
+        <div class="lesson-slide">
+            <div id="lesson-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators pb-2">
+                    <li data-target="#lesson-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#lesson-carousel" data-slide-to="1"></li>
+                    <li data-target="#lesson-carousel" data-slide-to="2"></li>
+                    <li data-target="#lesson-carousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div v-for="(news, index) in latest_news" v-bind:class="{active: index === 0}"
+                        class="carousel-item">
+                        <img v-bind:src="news.banner" class="d-block w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 關於5倍紅寶石 -->
+        <div class="about pb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center my-5">
+                        <h4>
+                            關於五倍紅寶石 About 5xRuby
+                        </h4>
+                    </div>
+                    <!-- index:陣列的索引（從0開始） -->
+                    <div class="about-list text-center d-flex flex-wrap">
+                        <div v-for="(service, index) in services" class="col-12 col-md-3">
+                            <img v-bind:src="service.img" v-bind:alt="service.img_text">
+                            <h3 v-html="(index+1) + service.title" class="pt-3"></h3>
+                            <p class="pt-3">{{service.text}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 補充：
+             資料來源名稱不一定與頁面上的對應區塊一致，主要因為資料來源可以
+             同時被多個地方使用，如果資料來源名稱與對應區塊一致容易造成可重
+             覆使用率降低，目前在靜態頁面可能看不出來，但如果未來開始接後端
+             資料可能就會發現這個問題。
+        -->
+        <!-- 熱門網頁設計課程推薦 -->
+        <div class="recent-lesson pb-4 mb-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center my-5">
+                        <h4>
+                            熱門網頁設計課程推薦
+                        </h4>
+                    </div>
+                    <div class="lesson-list d-flex flex-wrap">
+                        <div v-for="lesson in lessons" class="col-12 col-md-4 mb-4">
+                            <div class="lesson-block">
+                                <img v-bind:src="lesson.img" v-bind:alt="lesson.title" class="w-100">
+                                <div class="lesson-content">
+                                    <div v-if="monthstatus" class="badge badge-tag">
+                                        {{ monthstatus(lesson.months) }}
+                                    </div>
+                                    <h5 v-if="addicon" class="mt-2 mb-4 font-weight-bold">{{lesson.title}}</h5>
+                                    <p class="teacher">講師：{{lesson.tutor}}</p>
+                                    <div class="lesson-time d-flex">
+                                        <p class="time mr-3">開課時間</p>
+                                        <div class="time-item">
+                                            <div v-for="m in lesson.months" class="badge badge-time">
+                                                {{m}}月│{{lesson.class}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center my-5">
+                            <button type="button" class="btn btn-red btn-lg">看更多網頁課程</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 頭像+推薦文 輪播 -->
+        <div class="lesson-recommend">
+            <div class="col-12 text-center py-4">
+                <h4>
+                    網頁課程推薦
+                </h4>
+            </div>
+            <div id="recommend-carousel" class="carousel slide pb-5" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#recommend-carousel" data-slide-to="0" class="active mb-1"></li>
+                    <li data-target="#recommend-carousel" data-slide-to="1"></li>
+                    <li data-target="#recommend-carousel" data-slide-to="2"></li>
+                    <li data-target="#recommend-carousel" data-slide-to="3"></li>
+                    <li data-target="#recommend-carousel" data-slide-to="4"></li>
+                    <li data-target="#recommend-carousel" data-slide-to="5"></li>
+                </ol>
+                <div class="carousel-inner mb-5">
+                    <div class="container">
+                        <div v-for="(lecturer, index) in lecturers" v-bind:class="{active: index === 0}"
+                            class="lecturer-intro carousel-item">
+                            <div class="d-flex justify-content-center my-3">
+                                <div class="col-2">
+                                    <img v-bind:src="lecturer.img" class="d-block w-100">
+                                </div>
+                                <div class="col-8">
+                                    <p class="d-block">
+                                        {{lecturer.recommend}}
+                                        <span class="d-block text-large text-red">{{lecturer.name}}</span>
+                                        <span class="d-block">{{lecturer.job}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 聯絡資訊 -->
+        <div class="contact-us my-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h4 class="my-3">想更瞭解我們嗎？</h4>
+                        <p class="text my-4">
+                            您可以看看<a class="text-red" href="#">常見問題</a>或者直接<a class="text-red"
+                                href="#">線上洽詢</a>，會有親切的客服人員回答您的問題，
+                            <br>也可以透過社群網站隨時關注我們的動態。
+                        </p>
+                    </div>
+                    <div class="social-icon mb-5 mx-auto">
+                        <a href="#">
+                            <img src="pic/icon-fb.png" alt="FB icon" class="mr-3">
+                        </a>
+                        <a href="#">
+                            <img src="pic/icon-twitter.png" alt="twitter icon" class="ml-3">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 頁尾區塊 -->
+        <footer class="footer pt-5 pb-2 my-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 pb-3">
+                        <a href="#" class="text-decoration-none">
+                            <img src="pic/5xruby-footer.JPG" class="d-inline-block align-top" loading="lazy">
+                        </a>
+                        <ul class="footer-info mt-3">
+                            <li class="mb-2">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <a href="tel:02-23315247" class="text-decoration-none" target="_blank">02-2331-5247</a>
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-envelope mr-2"></i>
+                                <a href="mailto:hi@5xruby.tw" class="text-decoration-none"
+                                    target="_blank">hi@5xruby.tw</a>
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <a href="https://goo.gl/lz5v93" class="text-decoration-none" target="_blank">10046
+                                    台北市中正區衡陽路 7 號 5 樓</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-6 col-md-2 pb-3">
+                                <ul>
+                                    <li class="mb-3"><b>我們的課程</b></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">ASTRO Camp</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">線上課程</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">全方位課程</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">短期課程</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-2 pb-3">
+                                <ul>
+                                    <li class="mb-3"><b>服務項目</b></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">專案開發</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">企業代訓</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">空間租借</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-2 pb-3">
+                                <ul>
+                                    <li class="mb-3"><b>關於我們</b></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">關於我們</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">媒體報導</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">團隊成員</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">專欄文章</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">最新消息</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-2 pb-3">
+                                <ul>
+                                    <li class="mb-3"><b>聯絡我們</b></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">聯絡詢價</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">工作機會</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-2 pb-3">
+                                <ul>
+                                    <li class="mb-3"><b>幫助與政策</b></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">常見問題</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">隱私權政策</a></li>
+                                    <li class="mb-2"><a href="#" class="text-decoration-none">服務條款</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-md-2 pb-3">
+                                <ul>
+                                    <li class="mb-3"><b>追蹤</b></li>
+                                    <li class="mb-2"><i class="fab fa-facebook mr-2"></i><a href="#"
+                                            class="text-decoration-none">Facebook</a></li>
+                                    <li class="mb-2"><i class="fab fa-github mr-2"></i><a href="#"
+                                            class="text-decoration-none">GitHub</a></li>
+                                    <li class="mb-2"><i class="fab fa-line mr-2"></i><a href="#"
+                                            class="text-decoration-none">Line@</a></li>
+                                    <li class="mb-2"><i class="fab fa-twitter mr-2"></i><a href="#"
+                                            class="text-decoration-none">Twitter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 copyright text-center mt-4 py-2">
+                        © 2014 - 2020 五倍紅寶石股份有限公司 (5XRUBY CO., LTD) | 台北市短期補習班立案 第 7594 號
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        new Vue({
+            el: '#test',
+            data: {
+                // 關於五倍紅寶石
+                services: [
+                    {
+                        img: 'pic/about01.png',
+                        img_text: '網頁設計前後端課程教學',
+                        num: '1',
+                        title: '網頁設計<br>前後端課程教學',
+                        text: '帶你掌握程式技能轉職工程師，程式課程從入門到進階讓你快速上手，學員好評推薦轉職課程！'
+                    },
+                    {
+                        img: 'pic/about02.png',
+                        img_text: '頂尖技術網頁製作、專案開發',
+                        num: '2',
+                        title: '頂尖技術<br>網頁製作、專案開發',
+                        text: '網站開發到行動裝置 App 工程服務、系統設計開發甚至系統架設，提供專業的建議與頂尖的技術。'
+                    },
+                    {
+                        img: 'pic/about03.png',
+                        img_text: '資訊軟體開發技術顧問',
+                        num: '3',
+                        title: '資訊軟體開發<br>技術顧問',
+                        text: '協助您將現有人力快速打造為 Ruby/Rails 團隊，無須經歷繁瑣的人才招募就有即戰力！'
+                    },
+                    {
+                        img: 'pic/about04.png',
+                        img_text: '前後端工程師社群經營',
+                        num: '4',
+                        title: '前後端工程師<br>社群經營',
+                        text: 'Ruby 社群經營、舉辦各類活動，促進 Ruby 社群發展，歡迎前後端工程師分享交流。'
+                    }
+                ],
+                // 頭像+推薦文 輪播
+                lecturers: [
+                    {
+                        img: 'pic/Victor.jpg',
+                        recommend: '不禁留在，素質進了問題參數尚未一句評論緊緊手上出來這款資金故障上漲反覆，好了配置，發貼聽到頓時師傅，不可隱藏版軟體一口有可能如果你，認定後面我和運用笑容臉上，今後論文分公司，欄目但是，各級新手，傢伙。',
+                        name: 'Victor Lam',
+                        job: '連續創業家，自由工作者'
+                    },
+                    {
+                        img: 'pic/Jason.jpg',
+                        recommend: '不禁留在，素質進了問題參數尚未一句評論緊緊手上出來這款資金故障上漲反覆，好了配置，發貼聽到頓時師傅，不可隱藏版軟體一口有可能如果你，認定後面我和運用笑容臉上，今後論文分公司，欄目但是，各級新手，傢伙。',
+                        name: 'Victor Lam',
+                        job: '連續創業家，自由工作者'
+                    },
+                    {
+                        img: 'pic/Felix.jpg',
+                        recommend: '不禁留在，素質進了問題參數尚未一句評論緊緊手上出來這款資金故障上漲反覆，好了配置，發貼聽到頓時師傅，不可隱藏版軟體一口有可能如果你，認定後面我和運用笑容臉上，今後論文分公司，欄目但是，各級新手，傢伙。',
+                        name: 'Victor Lam',
+                        job: '連續創業家，自由工作者'
+                    },
+                    {
+                        img: 'pic/Hana.jpg',
+                        recommend: '不禁留在，素質進了問題參數尚未一句評論緊緊手上出來這款資金故障上漲反覆，好了配置，發貼聽到頓時師傅，不可隱藏版軟體一口有可能如果你，認定後面我和運用笑容臉上，今後論文分公司，欄目但是，各級新手，傢伙。',
+                        name: 'Victor Lam',
+                        job: '連續創業家，自由工作者'
+                    },
+                    {
+                        img: 'pic/John.jpg',
+                        recommend: '不禁留在，素質進了問題參數尚未一句評論緊緊手上出來這款資金故障上漲反覆，好了配置，發貼聽到頓時師傅，不可隱藏版軟體一口有可能如果你，認定後面我和運用笑容臉上，今後論文分公司，欄目但是，各級新手，傢伙。',
+                        name: 'Victor Lam',
+                        job: '連續創業家，自由工作者'
+                    },
+                    {
+                        img: 'pic/Ben.jpg',
+                        recommend: '不禁留在，素質進了問題參數尚未一句評論緊緊手上出來這款資金故障上漲反覆，好了配置，發貼聽到頓時師傅，不可隱藏版軟體一口有可能如果你，認定後面我和運用笑容臉上，今後論文分公司，欄目但是，各級新手，傢伙。',
+                        name: 'Victor Lam',
+                        job: '連續創業家，自由工作者'
+                    }
+                ],
+                // 課程圖片輪播
+                latest_news: [
+                    {
+                        banner: 'pic/banner01.jpg'
+                    },
+                    {
+                        banner: 'pic/banner02.jpg'
+                    },
+                    {
+                        banner: 'pic/banner03.jpg'
+                    },
+                    {
+                        banner: 'pic/banner04.jpg'
+                    }
+                ],
+                // 熱門課程推薦
+                lessons: [
+                    {
+                        img: 'pic/lesson01.jpg',
+                        title: '網頁前端設計女性專班 - 假日班',
+                        tutor: '李建杭 (Amos Lee)',
+                        months: [7, 11],
+                        class: '假日班'
+                    },
+                    {
+                        img: 'pic/lesson02.jpg',
+                        title: 'Vue.js 與 Vuex 前端開發實戰課程 - 假日班',
+                        tutor: '許國政 (Kuro Hsu)',
+                        months: [8],
+                        class: '假日班'
+                    },
+                    {
+                        img: 'pic/lesson03.jpg',
+                        title: 'HTML 網頁設計新手村 - 假日班',
+                        tutor: '李建杭 (Amos Lee)',
+                        months: [4],
+                        class: '假日班'
+                    }
+                ]
+            },
+            methods: {
+                // 條件1:全部符合 => 開放報名中
+                // 條件2:部分符合 => 課程進行中
+                // 條件3:都不符合 => 課程已結束
+                // if、else if、else
+                // 相關連結: https://www.fooish.com/javascript/if-else.html
+                // _____.every(i => i > new Date().getMonth()+1)
+                // ervery : 每一個都要符合條件才會回傳true，否則都回傳false
+                // some : 其中一個符合條件就會回傳true，否則都回傳false
+                monthstatus: function (months) {
+                    var date = new Date();
+                    var month = date.getMonth() + 1;
+                    if (months.every(m => m > month)) {
+                        return "開放報名中";
+                    } else if (months.some(m => m === month)) {
+                        return "課程進行中";
+                    } else {
+                        return "課程已結束";
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
