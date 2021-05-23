@@ -1,0 +1,19 @@
+{
+  "name": "vue-5xruby-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WendyTsao/vue-5xruby-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WendyTsao/vue-5xruby-website/issues"
+  },
+  "homepage": "https://github.com/WendyTsao/vue-5xruby-website#readme"
+}
